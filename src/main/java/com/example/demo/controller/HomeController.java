@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Person;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -10,7 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     @RequestMapping("/home")
-    public String home(){
+    public String home(Model model){
+
+        Person person = new Person();
+
+        person.setprimeiroNome("Anderson");
+        person.setemail("xxx@gmail.com");
+
+
+        model.addAttribute("person", person);
+
+
+
 
         return "home";
     }
